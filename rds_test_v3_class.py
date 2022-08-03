@@ -1,6 +1,6 @@
 import pymysql
 import json
-a = 10
+a = 12
 
 names = [
     "Aaren",
