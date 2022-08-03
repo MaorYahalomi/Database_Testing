@@ -53,9 +53,9 @@ class DB_Manager:
 
   def query(self, data):
   # Add new Record:
-    # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bob", "1s2522","Amazon","aamzm@amazon.com")'
+    # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bob", "1s2522","Amazon","bob@amazon.com")'
     # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("Maor", "123456","Amazon","mm@amazon.com")'
-    # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bibi", "1q234W56","Amazon","amzm@amazon.com")'
+    # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bibi", "1q234W56","Amazon","bibi@amazon.com")'
     sql = f"INSERT INTO Users (Username, Password, Company, Mail) VALUES ('{data['Username']}','{data['Password']}','{data['Company']}','{data['Mail']}')"
     print(sql)
     self.cursorObject.execute(sql)
