@@ -66,10 +66,11 @@ class DB_Manager:
 
 data = {"Username": "Aviv", "Password": "123456",
         "Company": "AWS", "Mail": "aviv@amazon.com"}
-# db_connection = DB_Manager(db_url, db_user, db_pass, db_name)
-# db_connection.query(data)
+
+db_connection = DB_Manager(db_url, db_user, db_pass, db_name)
 # db_connection.create_table()
-# db_connection.fetch_all_data()
-#maorggd
+# db_connection.query(data)
+db_connection.fetch_all_data()
+
 
 
