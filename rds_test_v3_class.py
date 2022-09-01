@@ -39,13 +39,15 @@ class DB_Manager:
   def create_table(self):
     # # # SQL Create new Table:
     sqlQuery = "CREATE TABLE Users(Username varchar(32), Password int, Company varchar(32), Mail varchar(32))"
+    # sqlQuery = "CREATE TABLE poc(ID int, name varchar(32), Company varchar(32))"
     self.cursorObject.execute(sqlQuery)
     sqlQuery = "show tables"
     self.cursorObject.execute(sqlQuery)
 
   def fetch_all_data(self):
     # Fetch all the rows
-    self.cursorObject.execute("SELECT * FROM Users")
+    # self.cursorObject.execute("SELECT * FROM Users")
+    self.cursorObject.execute("SELECT * FROM poc")
     myresult = self.cursorObject.fetchall()
     for x in myresult:
       print(x)
@@ -56,7 +58,8 @@ class DB_Manager:
     # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bob", "1s2522","Amazon","bob@amazon.com")'
     # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("Maor", "123456","Amazon","mm@amazon.com")'
     # sql = 'INSERT INTO Users (Username, Password, Company, Mail) VALUES ("bibi", "1q234W56","Amazon","bibi@amazon.com")'
-    sql = f"INSERT INTO Users (Username, Password, Company, Mail) VALUES ('{data['Username']}','{data['Password']}','{data['Company']}','{data['Mail']}')"
+    # sql = f"INSERT INTO Users (Username, Password, Company, Mail) VALUES ('{data['Username']}','{data['Password']}','{data['Company']}','{data['Mail']}')"
+    sql = f"INSERT INTO poc (ID, name, Company) VALUES ('{data['ID']}','{data['name']}','{data['Company']}')"
     print(sql)
     self.cursorObject.execute(sql)
     self.connection.commit()
@@ -67,9 +70,13 @@ class DB_Manager:
 data = {"Username": "Aviv", "Password": "123456",
         "Company": "AWS", "Mail": "aviv@amazon.com"}
 
+data2 = {"ID": "3", "name": "rocky",
+        "Company": "AWS"}
+
 db_connection = DB_Manager(db_url, db_user, db_pass, db_name)
 # db_connection.create_table()
-# db_connection.query(data)
+# db_connection.query(data2)
+# test
 db_connection.fetch_all_data()
 
 
